@@ -5,7 +5,7 @@ This project also provides pre-processed biased training samples for three small
 
 ## Installation
 ``
-pip3 -r requirements.txt
+pip3 install -r requirements.txt
 ``
 
 
@@ -20,10 +20,10 @@ We use pre-computed PPR vector in our model, which can be found at:
 To reproduce the results of different GNN methods under biased training,
 
 ``
-python main_gnn.py --n-epochs=200 --dataset=citeseer --gnn-arch=$METHOD --n-repeats=100 --n-hidden=32 --dropout=0.5 --weight-decay=0.0005 --biased-sample=True --gpu=$GPU_ID
+python main_gnn.py --n-epochs=200 --dataset=$DATASET --gnn-arch=$METHOD --n-repeats=100 --n-hidden=32 --dropout=0.5 --weight-decay=0.0005 --biased-sample=True --gpu=$GPU_ID
 ``
 
-Option of ``$Method`` can be one of *graphsage, gat, ppnp, sgc*.
+Option of ``$Method`` can be one of *graphsage, gat, ppnp, sgc*, ``$Method`` can be one of *cora/citeseer/pubmed*.
 
 
 The mean accuracy (Mirco-F1) and standard deviation are summarized (with part of baselines) in the following tables:
