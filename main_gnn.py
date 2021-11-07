@@ -7,7 +7,6 @@ from collections import defaultdict, Counter
 
 from IPython import embed
 import dgl
-from dgl._deprecate.graph import DGLGraph
 from ogb.nodeproppred import Evaluator
 from dgl_models import Net, GraphSAGE, PPRPowerIteration, SGC, GAT
 
@@ -294,10 +293,7 @@ def main(args, new_classes):
         
         nx_g = nx.Graph(adj+ sp.eye(adj.shape[0]))
         
-        old_g =  DGLGraph(nx_g)
         g = dgl.from_networkx(nx_g)
-
-        old_g.readonly()
     else:
         raise ValueError("wrong dataset name")
     
@@ -378,7 +374,7 @@ def main(args, new_classes):
         ppr_vector = train_dump['ppr_vector']
         ppr_dist = train_dump['ppr_dist']
         #Z = ppr_vector.matmul(feat)
-    #embed()
+    embed()
     #
     avg_mmd_dist = []
     training_seeds_run = pickle.load(open('data/localized_seeds_{}.p'.format(args.dataset), 'rb'))
