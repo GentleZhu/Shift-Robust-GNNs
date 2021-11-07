@@ -374,7 +374,7 @@ def main(args, new_classes):
         ppr_vector = train_dump['ppr_vector']
         ppr_dist = train_dump['ppr_dist']
         #Z = ppr_vector.matmul(feat)
-    embed()
+    #embed()
     #
     avg_mmd_dist = []
     training_seeds_run = pickle.load(open('data/localized_seeds_{}.p'.format(args.dataset), 'rb'))
