@@ -4,9 +4,17 @@ Source code for "Shift-Robust GNNs: Overcoming the Limitations of Localized Grap
 This project also provides pre-processed biased training samples for three small-size (Cora/Citeseer/PubMed) and two medium-size graph (Ogb-arxiv/Reddit) benchmarks. Besides, scalable biased sampler is a tool to create biased training sample for any large-size graphs.
 
 ## Installation
+``
+pip3 -r requirements.txt
+``
+
 
 ## Processed data
 For three smaller GNN benchmarks, we provide 100 different biased training seeds under ``data/localized_seeds_{dataset}.p``. We also provide the tool to load our indexed network and you can test the performance of your GNN using our biased seeds.
+
+We use pre-computed PPR vector in our model, which can be found at:
+
+``intermediate``: https://drive.google.com/file/d/1zlJp9KEqxiApWX3IxC8nRx6tlkiqR-5V/view?usp=sharing
 
 ## Quick Start
 To reproduce the results of different GNN methods under biased training,
