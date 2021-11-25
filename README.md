@@ -1,5 +1,5 @@
 # Shift-Robust GNNs: Overcoming the Limitations of Localized Graph Training Data
-Source code for "Shift-Robust GNNs: Overcoming the Limitations of Localized Graph Training Data", published in NeurIPS 2021.
+Source code for ["Shift-Robust GNNs: Overcoming the Limitations of Localized Graph Training Data"](https://proceedings.neurips.cc/paper/2021/file/eb55e369affa90f77dd7dc9e2cd33b16-Paper.pd), published in NeurIPS 2021.
 
 This project also provides pre-processed biased training samples for three small-size (Cora/Citeseer/PubMed) and two medium-size graph (Ogb-arxiv/Reddit) benchmarks. Besides, scalable biased sampler is a tool to create biased training sample for any large-size graphs.
 
@@ -60,4 +60,4 @@ python main_gnn_large.py --n-epochs=100 --dataset=$DATASET --gnn-arch=gcn --n-re
 | SR-GCN | 61.6 (0.6) | 91.3 (0.5) |
 
 ## Apply SRGNN
-There are two hyper-parameter in our shift-robust function. One is λ for the regularization and B as the minimal weight of instance re-weighting.
+There are two hyper-parameter in our shift-robust function. One is λ for the regularization and B as the minimal weight of instance re-weighting in Equation 10 of the main paper.
