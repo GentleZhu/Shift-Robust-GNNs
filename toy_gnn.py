@@ -11,7 +11,7 @@ import scipy.sparse as sp
 import dgl
 from sklearn.metrics import f1_score
 
-def KMM(X,Xtest,_A=None, _sigma=1e1):
+def KMM(X,Xtest,_A=None, _sigma=1e1,beta=0.2):
 
     H = torch.exp(- 1e0 * pairwise_distances(X)) + torch.exp(- 1e-1 * pairwise_distances(X)) + torch.exp(- 1e-3 * pairwise_distances(X))
     f = torch.exp(- 1e0 * pairwise_distances(X, Xtest)) + torch.exp(- 1e-1 * pairwise_distances(X, Xtest)) + torch.exp(- 1e-3 * pairwise_distances(X, Xtest))
@@ -25,7 +25,7 @@ def KMM(X,Xtest,_A=None, _sigma=1e1):
     G = - np.eye(nsamples)
     _A = _A[~np.all(_A==0, axis=1)]
     b = _A.sum(1)
-    h = - 0.2 * np.ones((nsamples,1))
+    h = - beta * np.ones((nsamples,1))
     
     from cvxopt import matrix, solvers
     solvers.options['show_progress'] = False
@@ -186,7 +186,7 @@ if __name__ == '__main__':
     for i, idx in enumerate(idx_train):
         label_balance_constraints[labels[idx], i] = 1
     #embed()
-    kmm_weight, MMD_dist = KMM(Z_train, Z_test, label_balance_constraints)
+    kmm_weight, MMD_dist = KMM(Z_train, Z_test, label_balance_constraints, beta=0.2)
     print(kmm_weight.max(), kmm_weight.min())
     for epoch in range(EPOCH):
         model.train()
