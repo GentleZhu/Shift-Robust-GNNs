@@ -47,10 +47,10 @@ More comprehensive results can be found in Table 2 of the paper.
 
 ## Larger Graph Experiments
 We use GCN as base model in larger graph experiments as an example of applying SR-GNN on deep GNNs. The mean accuracy (Mirco-F1) and standard deviation are summarized (with part of baselines) in the following table:
-Running the follow command will first download the Ogbn-Arxiv and Reddit dataset.
+Running the follow command will first download the ogbn-arxiv and reddit dataset.
 
 ``
-python main_gnn_large.py --n-epochs=100 --dataset=$DATASET --gnn-arch=$METHOD --n-repeats=10 --n-hidden=256 --dropout=0.5 --weight-decay=0.0005 --biased-sample=True --gpu=$GPU_ID --SR=$SR
+python main_gnn_large.py --n-epochs=100 --dataset=$DATASET --gnn-arch=gcn --n-repeats=10 --n-hidden=256 --dropout=0.5 --weight-decay=0.0005 --biased-sample=True --gpu=$GPU_ID --SR=$SR
 ``
 
 
