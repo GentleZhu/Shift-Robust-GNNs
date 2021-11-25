@@ -7,7 +7,7 @@ from collections import defaultdict, Counter
 
 from IPython import embed
 import dgl
-from ogb.nodeproppred import Evaluator
+#from ogb.nodeproppred import Evaluator
 from dgl_models import Net, GraphSAGE, PPRPowerIteration, SGC, GAT
 
 from sklearn import preprocessing
