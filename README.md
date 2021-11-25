@@ -56,7 +56,8 @@ python main_gnn_large.py --n-epochs=100 --dataset=$DATASET --gnn-arch=gcn --n-re
 
 | Dataset | Ogbn-Arxiv | Reddit |
 | --------  |----------|----------|
-| GCN | 68.3 (4.3) |  89.6 (0.9) |
-| SR-GCN | 74.0 (3.3) | 91.3 (0.5) |
+| GCN | 59.3 (1.2) |  89.6 (0.9) |
+| SR-GCN | 61.6 (0.6) | 91.3 (0.5) |
 
 ## Apply SRGNN
+There are two hyper-parameter in our shift-robust function. One is λ for the regularization and B as the minimal weight of instance re-weighting.
