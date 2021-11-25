@@ -3,6 +3,17 @@ Source code for ["Shift-Robust GNNs: Overcoming the Limitations of Localized Gra
 
 This project also provides pre-processed biased training samples for three small-size (Cora/Citeseer/PubMed) and two medium-size graph (Ogb-arxiv/Reddit) benchmarks. Besides, scalable biased sampler is a tool to create biased training sample for any large-size graphs.
 
+If you find our paper useful, please consider cite the following paper.
+```
+@article{zhu2021shift,
+  title={Shift-robust gnns: Overcoming the limitations of localized graph training data},
+  author={Zhu, Qi and Ponomareva, Natalia and Han, Jiawei and Perozzi, Bryan},
+  journal={Advances in Neural Information Processing Systems},
+  volume={34},
+  year={2021}
+}
+```
+
 ## Installation
 ``
 pip3 install -r requirements.txt
@@ -12,7 +23,7 @@ pip3 install -r requirements.txt
 
  - [SR-GNN on Large Graph](#larger-graph-experiments)
 
- - [Use SR-GNN in your model](#apply-srgnn)
+ - [Use SR-GNN in your model](#apply-srgnn-and-dagnn)
 
 
 ## Processed data
@@ -59,5 +70,12 @@ python main_gnn_large.py --n-epochs=100 --dataset=$DATASET --gnn-arch=gcn --n-re
 | GCN | 59.3 (1.2) |  89.6 (0.9) |
 | SR-GCN | 61.6 (0.6) | 91.3 (0.5) |
 
-## Apply SRGNN
-There are two hyper-parameter in our shift-robust function. One is λ for the regularization and B as the minimal weight of instance re-weighting in Equation 10 of the main paper.
+## Apply SRGNN and DAGNN
+SRGNN is our method and DAGNN is our first reference implementation for [domain adversarial neural network(DANN)](https://arxiv.org/pdf/1505.07818.pdf) in GNNs.
+There are two hyper-parameter in our shift-robust function. One is alpha for the regularization and beta as the minimal weight of instance re-weighting in Equation 10 of the main paper.
+
+``
+python toy_gnn.py
+``
+
+Please refer to [toy_gnn.py](./toy_gnn.py) for reference implementation of ours and DANN (more comparison in Table 4 of the main paper). We recommend to implement your new distributional-shift method as a classification head as what we did in ToyGNN.
