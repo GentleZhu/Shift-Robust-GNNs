@@ -1,5 +1,5 @@
 # Shift-Robust GNNs: Overcoming the Limitations of Localized Graph Training Data
-Source code for ["Shift-Robust GNNs: Overcoming the Limitations of Localized Graph Training Data"](https://proceedings.neurips.cc/paper/2021/file/eb55e369affa90f77dd7dc9e2cd33b16-Paper.pd), published in NeurIPS 2021.
+Source code for ["Shift-Robust GNNs: Overcoming the Limitations of Localized Graph Training Data"](https://proceedings.neurips.cc/paper/2021/file/eb55e369affa90f77dd7dc9e2cd33b16-Paper.pdf), published in NeurIPS 2021.
 
 This project also provides pre-processed biased training samples for three small-size (Cora/Citeseer/PubMed) and two medium-size graph (Ogb-arxiv/Reddit) benchmarks. Besides, scalable biased sampler is a tool to create biased training sample for any large-size graphs.
 
