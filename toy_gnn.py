@@ -174,7 +174,7 @@ if __name__ == '__main__':
     model.cuda()
     # an example of biased training data
     idx_train = torch.LongTensor(pickle.load(open('data/localized_seeds_{}.p'.format(DATASET), 'rb'))[0])
-    all_idx = set(range(g.number_of_nodes())) - set(idx_train)
+    all_idx = set(range(g.number_of_nodes())) - set(idx_train.tolist())
     idx_test = torch.LongTensor(list(all_idx))
     perm = torch.randperm(idx_test.shape[0])
     iid_train = idx_test[perm[:idx_train.shape[0]]] 
