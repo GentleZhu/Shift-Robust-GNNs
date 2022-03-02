@@ -156,7 +156,7 @@ class ToyGNN(nn.Module):
         return h
 
 if __name__ == '__main__':
-    DATASET = 'citeseer'
+    DATASET = 'cora'
     EPOCH = 200
     # option of 'SRGNN','DANN' and None
     METHOD = 'SRGNN'
