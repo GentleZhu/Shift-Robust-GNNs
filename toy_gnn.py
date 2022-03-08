@@ -170,7 +170,7 @@ if __name__ == '__main__':
     
 
     model = ToyGNN(g,features.shape[1],32,labels.max().item() + 1,1,F.tanh,0.2)
-    optimiser = torch.optim.Adam(model.parameters(), lr=0.01)
+    optimiser = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=0.0005)
     model.cuda()
     # an example of biased training data
     idx_train = torch.LongTensor(pickle.load(open('data/localized_seeds_{}.p'.format(DATASET), 'rb'))[0])
