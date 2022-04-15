@@ -19,12 +19,22 @@ If you find our paper useful, please consider cite the following paper.
 pip3 install -r requirements.txt
 ``
 ## Quick Start
+ - [Use SR-GNN in your model](#apply-srgnn-and-dagnn)
+
  - [SR-GNN on Small Graph](#small-graph-benchmark)
 
  - [SR-GNN on Large Graph](#larger-graph-experiments)
 
- - [Use SR-GNN in your model](#apply-srgnn-and-dagnn)
 
+## Apply SRGNN and DAGNN
+SRGNN is our method and DAGNN is our first reference implementation for [domain adversarial neural network(DANN)](https://arxiv.org/pdf/1505.07818.pdf) in GNNs.
+There are two hyper-parameter in our shift-robust function. One is alpha for the regularization and beta as the minimal weight of instance re-weighting in Equation 10 of the main paper.
+
+``
+python toy_gnn.py
+``
+
+Please refer to [toy_gnn.py](./toy_gnn.py) for reference implementation of ours and DANN (more comparison in Table 4 of the main paper). We recommend to implement your new distributional-shift method as a classification head as what we did in ToyGNN.
 
 ## Processed data
 For three smaller GNN benchmarks, we provide 100 different biased training seeds under ``data/localized_seeds_{dataset}.p``. We also provide the tool to load our indexed network and you can test the performance of your GNN using our biased seeds. For two medium size graphs, we provide 10 different biased training seeds as ``data/{dataset}_{label_ratio}``.
@@ -70,12 +80,4 @@ python main_gnn_large.py --n-epochs=100 --dataset=$DATASET --gnn-arch=gcn --n-re
 | GCN | 59.3 (1.2) |  89.6 (0.9) |
 | SR-GCN | 61.6 (0.6) | 91.3 (0.5) |
 
-## Apply SRGNN and DAGNN
-SRGNN is our method and DAGNN is our first reference implementation for [domain adversarial neural network(DANN)](https://arxiv.org/pdf/1505.07818.pdf) in GNNs.
-There are two hyper-parameter in our shift-robust function. One is alpha for the regularization and beta as the minimal weight of instance re-weighting in Equation 10 of the main paper.
 
-``
-python toy_gnn.py
-``
-
-Please refer to [toy_gnn.py](./toy_gnn.py) for reference implementation of ours and DANN (more comparison in Table 4 of the main paper). We recommend to implement your new distributional-shift method as a classification head as what we did in ToyGNN.
