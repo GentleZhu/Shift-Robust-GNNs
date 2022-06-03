@@ -149,11 +149,11 @@ class GraphSAGE(nn.Module):
     '''
     def forward(self, features):
         h = features
-        for layer in self.layers:
+        for layer in self.layers[:-1]:
             h = layer(self.g, h)
-        #self.final_hidden = h
-        #return self.layers[-1](h)
-        return h
+        self.h = h
+        return self.layers[-1](h)
+        #return h
     def output(self, features):
         h = features
         for layer in self.layers[:-1]:
